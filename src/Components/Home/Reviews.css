@@ -1,0 +1,51 @@
+.reviews {
+
+    background-image: url("https://html.modernwebtemplates.com/electrix/img/parallax/testimonials.jpg");
+    background-attachment: fixed;
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.swiper-slide {
+    display: grid;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    /* box-shadow: 7px 10px 5px rgb(231, 231, 231), -3px -7px 10px rgb(230, 230, 230); */
+    width: 18.75rem;
+    height: 18.75rem;
+}
+
+.back-g {
+    background-color: #002632a1;
+}
+
+.swiper-slide .supplier-img {
+    display: block;
+    width: 6rem;
+    justify-self: center;
+    margin-top: 0.6rem;
+    border-radius: 50%;
+    border: 0.5rem solid #fff;
+}
+
+.suppliers h4 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.supplier-description {
+    color: rgb(193, 193, 193);
+}
+
+@media only screen and (max-width: 600px) {
+    /* .reviews {
+        padding: 5px;
+    } */
+}
