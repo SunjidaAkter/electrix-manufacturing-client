@@ -4,7 +4,7 @@ const useTools = (reload) => {
     const [tools, setTools] = useState([]);
 
     useEffect(() => {
-        fetch('fake.json')
+        fetch('http://localhost:5000/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, [reload]);

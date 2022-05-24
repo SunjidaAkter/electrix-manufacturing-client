@@ -7,8 +7,8 @@ import rating from '../../Assets/rating.png'
 const BusinessSummary = () => {
     return (
         <div className='mb-12'>
-            <p className='mt-12  text-accent font-bold text-center lg:text-5xl text-3xl'>BILLIONS BUSINESS BELIEVE US </p>
-            <p className='mb-12 text-primary text-center lg:text-3xl text-xl'>We understand customers expectation</p>
+            <p className='mt-12  text-accent font-extrabold text-center lg:text-5xl text-3xl'>BILLIONS BUSINESS BELIEVE US </p>
+            <p className='mb-12 text-secondary font-semibold text-center lg:text-3xl text-xl'>We understand customers expectation</p>
 
             <div class="w-full flex justify-center">
                 <div class="lg:pl-12 lg:pr-8 px-24 stats stats-vertical lg:stats-horizontal shadow-xl">

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../Hooks/useToken';
+import { toast } from "react-toastify";
 import Loading from '../Shared/Loading';
 
 const SignUp = () => {
@@ -14,7 +15,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -38,11 +39,15 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
 
+    // if (user) {
+    //     toast("Verification Email Sent");
+
+    // }
+
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log('update done');
-        navigate('/appointment');
+
     }
     return (
         <div className="hero min-h-screen" style={{ background: `url("https://html.modernwebtemplates.com/electrix/images/slide03.jpg")` }}>

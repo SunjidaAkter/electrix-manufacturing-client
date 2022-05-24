@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useEffect, useRef } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../Hooks/useToken';
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 
 const SignIn = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const emailRef = useRef('');
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [
         signInWithEmailAndPassword,
         user,
@@ -35,6 +38,17 @@ const SignIn = () => {
         return <Loading></Loading>
     }
 
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('please enter your email address');
+        }
+    }
+
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
@@ -58,6 +72,7 @@ const SignIn = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input
+                                    ref={emailRef}
                                     type="email"
                                     placeholder="Your Email"
                                     className="input input-bordered w-full max-w-xs"
@@ -105,7 +120,8 @@ const SignIn = () => {
                             {signInError}
                             <input className='btn bg-neutral w-full max-w-xs text-white' type="submit" value="SIGN IN" />
                         </form>
-                        <p><small>New to ELECTRIX MANUFACTURING <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
+                        <p><small>New to ELECTRIX MANUFACTURING. <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
+                        <p><small>Forget Password? <button className='btn btn-link text-primary no-underline px-0 mx-0' onClick={resetPassword}> Reset Password</button> </small></p>
                         <div className="divider">OR</div>
                         <button
                             onClick={() => signInWithGoogle()}

@@ -11,14 +11,14 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(" review.json")
+        fetch(" http://localhost:5000/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
     return (
         <div className="reviews">
             <div className="back-g lg:py-12 py-12">
-                <h2 className="text-center pb-5">Our best supplier of 2022</h2>
+                <p className="text-accent font-bold text-3xl text-center my-8">WHAT PEOPLE SAY ABOUT US</p>
                 <>
                     <Swiper
                         className=""
@@ -49,9 +49,9 @@ const Reviews = () => {
                                     <div className="mt-2">
                                         <p className="text-primary text-xl font-bold ml-1 lg:ml-5">{review?.firstName}</p>
                                         <p className="text-black text-lg font-bold ml-1 lg:ml-5">{review?.lastName}</p>
-                                        <div className="flex justify-start">
-                                            <p className="mt-2 ml-1 lg:ml-5 font-bold text-2xl text-orange-400">{review?.ratings}</p>
-                                            <div class="mt-3 ml-1 lg:ml-1 rating">
+                                        <div className="flex justify-start my-2 ml-1 lg:ml-5 mb-2">
+                                            <p className=" ml-1 lg:ml-5 font-bold text-2xl text-orange-400">{review?.ratings}</p>
+                                            <div class="mt-1 ml-1 lg:ml-1 rating">
                                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                             </div>
                                         </div>

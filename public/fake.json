@@ -5,8 +5,8 @@
         "img": "https://html.modernwebtemplates.com/electrix/images/shop/01.png",
         "minQuantity": 23,
         "maxQuantity": 476,
-        "description": "brown",
-        "name": "Judith Frank"
+        "description": "Strip Steak 2369",
+        "name": "DRILLS"
     },
     {
         "_id": "628a6618ff842beef9c8549d",
@@ -14,8 +14,8 @@
         "img": "https://html.modernwebtemplates.com/electrix/images/shop/02.png",
         "minQuantity": 23,
         "maxQuantity": 289,
-        "description": "brown",
-        "name": "Linda Macias"
+        "description": "Chuck Corned FG-00",
+        "name": "SANDERS"
     },
     {
         "_id": "628a66185e5bbce7fef096f5",
@@ -23,43 +23,43 @@
         "img": "https://html.modernwebtemplates.com/electrix/images/shop/04.png",
         "minQuantity": 28,
         "maxQuantity": 217,
-        "description": "blue",
-        "name": "Odessa Hardy"
+        "description": "Turducken 3900",
+        "name": "HOSE REELS"
     },
     {
         "_id": "628a6618bb4e6c44de5ef61f",
         "price": 246,
-        "img": "https://html.modernwebtemplates.com/electrix/images/shop/01.png",
+        "img": "https://html.modernwebtemplates.com/electrix/images/shop/03.png",
         "minQuantity": 39,
         "maxQuantity": 365,
-        "description": "blue",
-        "name": "Byrd Perry"
+        "description": "Sirloin GT890 Fielbasa",
+        "name": "RIVET GUNS"
     },
     {
         "_id": "628a6618b4b4d647dddbb21f",
         "price": 266,
-        "img": "https://html.modernwebtemplates.com/electrix/images/shop/02.png",
+        "img": "https://html.modernwebtemplates.com/electrix/images/categories/04.jpg",
         "minQuantity": 40,
         "maxQuantity": 204,
-        "description": "blue",
-        "name": "Charlene Vaughan"
-    },
-    {
-        "_id": "628a661889d6a705e00128dd",
-        "price": 167,
-        "img": "https://html.modernwebtemplates.com/electrix/images/shop/04.png",
-        "minQuantity": 25,
-        "maxQuantity": 288,
-        "description": "brown",
-        "name": "Duffy Kelly"
+        "description": "Charlene DK58H Vaughan",
+        "name": "BALANCERS"
     },
     {
         "_id": "628a6618d27a95b287854568",
         "price": 174,
-        "img": "https://html.modernwebtemplates.com/electrix/images/shop/01.png",
+        "img": "https://html.modernwebtemplates.com/electrix/images/categories/08.jpg",
         "minQuantity": 35,
         "maxQuantity": 371,
-        "description": "brown",
-        "name": "Mckee Rush"
+        "description": "Mckee GH56DG Rush",
+        "name": "AIT NUTRUNNERS"
+    },
+    {
+        "_id": "628a661889d6a705e00128dd",
+        "price": 167,
+        "img": "https://html.modernwebtemplates.com/electrix/images/categories/07.jpg",
+        "minQuantity": 25,
+        "maxQuantity": 288,
+        "description": "Duffy ST4I7L Kelly",
+        "name": "SAWS"
     }
 ]

@@ -1,6 +1,5 @@
 [
     {
-        "_id": "628a949110a0cc0c21292e73",
         "img": "https://html.modernwebtemplates.com/electrix/images/faces/02.jpg",
         "review": "The goods have been well received! We are really satisfied with the service of International AElectriX. They help us to clear our confusion when choosing the products, fast delivery, and good after sales service.",
         "firstName": "Samuel",
@@ -8,7 +7,6 @@
         "ratings": "2"
     },
     {
-        "_id": "628a94912a6c0dd912f43771",
         "img": "https://html.modernwebtemplates.com/electrix/images/faces/03.jpg",
         "review": "Just wanted to let you know how happy I was with your customer service and the products I received. I made a mistake by purchasing items using my personal account instead of my business account.",
         "firstName": "Maurice",
@@ -16,7 +14,6 @@
         "ratings": "1"
     },
     {
-        "_id": "628a9491ca4e363f87bf8d39",
         "img": "https://html.modernwebtemplates.com/electrix/images/faces/01.jpg",
         "review": "ElectriX, I purchased some air tools via the website, I found their service and communication very efficient. I was kept informed thru the whole process in a timely manner.",
         "firstName": "Debra",
