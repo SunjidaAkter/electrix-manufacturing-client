@@ -20,16 +20,10 @@ const Purchase = () => {
             .then((res) => res.json())
             .then((data) => setTool(data));
     }, [id, reload]);
+    let error1;
 
     if (loading) {
         return <Loading ></Loading>;
-    }
-    let error1;
-    if (watch("orderQuantity") < 12) {
-        error1 = <>
-
-            <p>error</p>
-        </>
     }
     const onSubmit = (data, e) => {
         console.log();
@@ -39,13 +33,19 @@ const Purchase = () => {
         const mobileNo = data.mobileNo;
         const address = data.address;
         const orderQuantity = data.orderQuantity;
-        // const vehicleStatus = event.target.vehicleStatus;
+
         const myOrder = {
             name,
             mobileNo,
             address,
             email,
             orderQuantity,
+            img: tool?.img,
+            toolName: tool?.name,
+            price: tool?.price,
+            quantity: tool?.quantity,
+            totalPrice: tool?.totalPrice,
+            status: "unpaid"
         };
 
         fetch("http://localhost:5000/order", {
@@ -84,7 +84,7 @@ const Purchase = () => {
                     </div>
                 </div>
             </div>
-            <div class="divider lg:divider-horizontal">OR</div>
+            <div class="divider lg:divider-horizontal"><div class="rating gap-1"><input type="radio" name="rating-3" class="mask mask-heart bg-primary" /></div></div>
             <div className='grid flex-grow card bg-base-300 rounded-box px-16'>
                 <p className='mt-8 mb- font-extrabold text-primary text-5xl'>Order Details</p>
 
@@ -179,11 +179,14 @@ const Purchase = () => {
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text">Order Quantity</span>
                         </label>
                         <input
                             name="orderQuantity"
-                            type="text"
+                            type="number"
+                            min={tool?.minQuantity}
+                            max={tool?.maxQuantity}
+                            required
                             placeholder="Order quantity"
                             className="input input-bordered w-full max-w-xs"
                             {...register("orderQuantity", {
@@ -194,10 +197,6 @@ const Purchase = () => {
                             })}
                         />
                         <label className="label">
-                            {/* {min:tool?.minQuantity}
-                            {errors.number?.type==='min' && `Can not order less than ${tool?.minQuantity}`} */}
-                            {errors.orderQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.orderQuantity.message}</span>}
-                            {/* {error1} */}
                         </label>
                     </div>
                     <input className='btn bg-neutral w-full max-w-xs text-white' type="submit" value="ORDER" />

@@ -19,7 +19,7 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light  lg:stat-value text-neutral text-base lg:text-6xl ">72</div>
-                            <div class="stat-title text-primary lg:font-bold font-thin text-xs lg:text-4xl font-bold">Countries</div>
+                            <div class="stat-title text-primary lg:font-bold font-normal text-xs lg:text-4xl font-bold">Countries</div>
 
                         </div>
                     </div>
@@ -30,7 +30,7 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">500+</div>
-                            <div class="stat-title lg:font-bold text-primary font-thin text-xs lg:text-4xl font-bold">Complete<br />Projects</div>
+                            <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Complete<br />Projects</div>
 
                         </div>
                     </div>
@@ -41,7 +41,7 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">245+</div>
-                            <div class="stat-title lg:font-bold text-primary font-thin text-xs lg:text-4xl font-bold">Happy<br />Clients</div>
+                            <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Happy<br />Clients</div>
 
                         </div>
                     </div>
@@ -52,7 +52,7 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">454+</div>
-                            <div class="stat-title lg:font-bold text-primary font-thin text-xs lg:text-4xl font-bold">Reviews</div>
+                            <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Reviews</div>
 
                         </div>
                     </div>
@@ -65,8 +65,8 @@ const BusinessSummary = () => {
             <div className='my-5 w-full flex justify-center items-center'>
                 <div class="p-12 w-11/12 flex justify-center items-center h-full card lg:card-side bg-base-100 shadow-2xl">
                     <div>
-                        <p className='mt-3 font-bold text-neutral lg:text-5xl text-4xl'>Have any question?</p>
-                        <p className='font-bold text-primary lg:text-3xl text-2xl'>Don't hesitate to ask</p>
+                        <p className='mt-3 font-bold text-neutral text-center lg:text-left lg:text-5xl text-4xl'>Have any question?</p>
+                        <p className='font-bold text-primary text-center lg:text-left lg:text-3xl text-2xl'>Don't hesitate to ask</p>
                     </div>
                     {/* <div class="card-body">
 

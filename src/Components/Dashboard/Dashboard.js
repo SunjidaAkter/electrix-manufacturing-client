@@ -7,10 +7,11 @@ const DashboardSidebar = ({ children }) => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div class='drawer drawer-mobile mt-16 bg-accent'>
+        <div class='drawer drawer-mobile mt-16 bg-white'>
             <input id='my-drawer-2' type='checkbox' class='drawer-toggle' />
-            <div class='drawer-content flex flex-col items-center justify-center'>
+            <div class='drawer-content flex flex-col items-end justify-start'>
                 {/* <!-- Page content here --> */}
+                <label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden">Open Drawer</label>
                 <Outlet></Outlet>
             </div>
             <div class='drawer-side '>
