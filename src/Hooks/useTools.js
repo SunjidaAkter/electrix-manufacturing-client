@@ -4,7 +4,7 @@ const useTools = (reload) => {
     const [tools, setTools] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tool')
+        fetch('https://calm-bayou-08500.herokuapp.com/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, [reload]);

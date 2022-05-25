@@ -18,7 +18,7 @@ const Nav = () => {
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/portfolio">My Portfolio</Link></li>
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
@@ -45,7 +45,7 @@ const Nav = () => {
                 <div class="flex-none">
                     <ul class="menu menu-horizontal p-0">
 
-                        <li>{user ? <button className="btn btn-ghost" onClick={signout} >Sign Out</button> : <Link to="/signin">Login</Link>}</li>
+                        <li>{user ? <button className="btn btn-ghost" onClick={signout} >SIGN OUT</button> : <Link to="/signin">SIGN IN</Link>}</li>
                     </ul>
                 </div>
             </div>

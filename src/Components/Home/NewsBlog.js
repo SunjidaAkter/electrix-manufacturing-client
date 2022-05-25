@@ -5,7 +5,7 @@ const NewsBLog = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch(" http://localhost:5000/news")
+        fetch(" https://calm-bayou-08500.herokuapp.com/news")
             .then((res) => res.json())
             .then((data) => setNews(data));
     }, []);

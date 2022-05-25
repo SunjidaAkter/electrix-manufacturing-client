@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../Hooks/useToken';
 import { toast } from 'react-toastify';
+import googleIcon from "../../Assets/icons8-google-30.png";
 import Loading from '../Shared/Loading';
 
 const SignIn = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, watch, handleSubmit } = useForm();
     const emailRef = useRef('');
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [
@@ -39,13 +40,14 @@ const SignIn = () => {
     }
 
     const resetPassword = async () => {
-        const email = emailRef.current.value;
+        const email = watch("email");
+        console.log(email)
         if (email) {
             await sendPasswordResetEmail(email);
-            toast('Sent email');
+            toast.success('Sent email');
         }
         else {
-            toast('please enter your email address');
+            toast.error('please enter your email address');
         }
     }
 
@@ -64,7 +66,7 @@ const SignIn = () => {
             <div className='flex h-screen justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
-                        <h2 className="text-center text-2xl font-bold">Login</h2>
+                        <h2 className="text-center text-2xl font-bold">SIGN IN</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-control w-full max-w-xs">
@@ -73,6 +75,7 @@ const SignIn = () => {
                                 </label>
                                 <input
                                     ref={emailRef}
+                                    name="email"
                                     type="email"
                                     placeholder="Your Email"
                                     className="input input-bordered w-full max-w-xs"
@@ -123,10 +126,16 @@ const SignIn = () => {
                         <p><small>New to ELECTRIX MANUFACTURING. <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
                         <p><small>Forget Password? <button className='btn btn-link text-primary no-underline px-0 mx-0' onClick={resetPassword}> Reset Password</button> </small></p>
                         <div className="divider">OR</div>
-                        <button
+                        {/* <button
                             onClick={() => signInWithGoogle()}
                             className="btn bg-neutral w-full max-w-xs text-white"
-                        >Continue with Google</button>
+                        >Continue with Google</button> */}
+                        <button
+                            onClick={() => signInWithGoogle()}
+                            className='btn bg-neutral w-full max-w-xs text-white'>
+                            <img style={{ width: '30px' }} src={googleIcon} alt="" />
+                            <span className='px-2'>Connect With Google</span>
+                        </button>
                     </div>
                 </div>
             </div >

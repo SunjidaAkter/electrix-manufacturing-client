@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import useToken from '../../Hooks/useToken';
 import { toast } from "react-toastify";
 import Loading from '../Shared/Loading';
+import googleIcon from "../../Assets/icons8-google-30.png";
 
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -48,6 +49,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
 
+
     }
     return (
         <div className="hero min-h-screen" style={{ background: `url("https://html.modernwebtemplates.com/electrix/images/slide03.jpg")` }}>
@@ -55,7 +57,7 @@ const SignUp = () => {
             <div className='flex h-screen justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
-                        <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+                        <h2 className="text-center text-2xl font-bold">SIGN UP</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-control w-full max-w-xs">
@@ -132,10 +134,16 @@ const SignUp = () => {
                         </form>
                         <p><small>Already have an account? <Link className='text-primary' to="/signin">Please login</Link></small></p>
                         <div className="divider">OR</div>
-                        <button
+                        {/* <button
                             onClick={() => signInWithGoogle()}
                             className="btn btn-outline"
-                        >Continue with Google</button>
+                        >Continue with Google</button> */}
+                        <button
+                            onClick={() => signInWithGoogle()}
+                            className='btn bg-neutral w-full max-w-xs text-white'>
+                            <img style={{ width: '30px' }} src={googleIcon} alt="" />
+                            <span className='px-2'>Connect With Google</span>
+                        </button>
                     </div>
                 </div>
             </div >
