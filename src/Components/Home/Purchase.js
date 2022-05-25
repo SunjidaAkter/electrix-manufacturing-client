@@ -11,6 +11,7 @@ const Purchase = () => {
     const [reload, setReload] = useState(false);
     const [tool, setTool] = useState({});
     let [user, loading] = useAuthState(auth);
+    console.log(user.email);
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
 
     useEffect(() => {
@@ -23,6 +24,13 @@ const Purchase = () => {
     if (loading) {
         return <Loading ></Loading>;
     }
+    let error1;
+    if (watch("orderQuantity") < 12) {
+        error1 = <>
+
+            <p>error</p>
+        </>
+    }
     const onSubmit = (data, e) => {
         console.log();
 
@@ -30,17 +38,17 @@ const Purchase = () => {
         const email = data.email;
         const mobileNo = data.mobileNo;
         const address = data.address;
-        const orderQuanttity = data.orderQuanttity;
+        const orderQuantity = data.orderQuantity;
         // const vehicleStatus = event.target.vehicleStatus;
         const myOrder = {
             name,
             mobileNo,
             address,
             email,
-            orderQuanttity,
+            orderQuantity,
         };
 
-        fetch("http://localhost:5000/item", {
+        fetch("http://localhost:5000/order", {
             method: "POST",
             body: JSON.stringify(myOrder),
             headers: {
@@ -50,10 +58,13 @@ const Purchase = () => {
             .then((response) => response.json())
             .then((result) => {
                 if (result.acknowledged) {
-                    toast("The product has been added correctly!");
+                    toast.success("The product has been added correctly!");
                     e.target.reset();
                 }
             });
+        // var Error;
+        // const minQuantity={tool?.minQuantity};
+        // if(orderQuantity<34){}
     };
     return (
         <div className='px-12 flex flex-col w-full lg:flex-row'>
@@ -85,8 +96,9 @@ const Purchase = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input
+                                value={user.displayName}
+                                readOnly
                                 type="text"
-                                placeholder="Your Name"
                                 className="input input-bordered w-full max-w-xs"
                                 {...register("name", {
                                     required: {
@@ -103,77 +115,65 @@ const Purchase = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
+
                             <input
+                                value={user.email}
+                                readOnly
                                 name="email"
                                 type="email"
-                                placeholder="Your Email"
                                 className="input input-bordered w-full max-w-xs"
                                 {...register("email", {
                                     required: {
                                         value: true,
                                         message: 'Email is Required'
-                                    },
-                                    pattern: {
-                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Provide a valid Email'
                                     }
                                 })}
                             />
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
                     </div>
                     <div className='flex justify-between'>
-                        <div className="form-control w-2/5 max-w-xs">
+                        <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text">Address</span>
                             </label>
                             <input
-                                name="email"
-                                type="email"
-                                placeholder="Your Email"
+                                name="address"
+                                type="text"
+                                placeholder="Where to Ship"
                                 className="input input-bordered w-full max-w-xs"
-                                {...register("email", {
+                                {...register("address", {
                                     required: {
                                         value: true,
-                                        message: 'Email is Required'
-                                    },
-                                    pattern: {
-                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Provide a valid Email'
+                                        message: 'Address is Required'
                                     }
                                 })}
                             />
                             <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-2/5 max-w-xs">
+                        <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text">Mobile Number</span>
                             </label>
                             <input
-                                name="email"
-                                type="email"
-                                placeholder="Your Email"
+                                name="mobileNo"
+                                type="text"
+                                placeholder="Your Mobile Number"
                                 className="input input-bordered w-full max-w-xs"
-                                {...register("email", {
+                                {...register("mobileNo", {
                                     required: {
                                         value: true,
-                                        message: 'Email is Required'
-                                    },
-                                    pattern: {
-                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Provide a valid Email'
+                                        message: 'Mobile Number is Required'
                                     }
+
                                 })}
                             />
                             <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.mobileNo?.type === 'required' && <span className="label-text-alt text-red-500">{errors.mobileNo.message}</span>}
                             </label>
                         </div>
                     </div>
@@ -182,27 +182,25 @@ const Purchase = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input
-                            name="email"
-                            type="email"
-                            placeholder="Your Email"
+                            name="orderQuantity"
+                            type="text"
+                            placeholder="Order quantity"
                             className="input input-bordered w-full max-w-xs"
-                            {...register("email", {
+                            {...register("orderQuantity", {
                                 required: {
                                     value: true,
-                                    message: 'Email is Required'
-                                },
-                                pattern: {
-                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                    message: 'Provide a valid Email'
+                                    message: 'Order quantity is required'
                                 }
                             })}
                         />
                         <label className="label">
-                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            {/* {min:tool?.minQuantity}
+                            {errors.number?.type==='min' && `Can not order less than ${tool?.minQuantity}`} */}
+                            {errors.orderQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.orderQuantity.message}</span>}
+                            {/* {error1} */}
                         </label>
                     </div>
-                    <input className='btn bg-neutral w-full max-w-xs text-white' type="submit" value="SIGN IN" />
+                    <input className='btn bg-neutral w-full max-w-xs text-white' type="submit" value="ORDER" />
                 </form>
 
             </div>

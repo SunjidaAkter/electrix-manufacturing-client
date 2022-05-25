@@ -13,6 +13,15 @@ import MyPortfolio from './Components/Pages/MyPortfolio';
 import RequireAuth from './Components/Login/RequireAuth';
 import Purchase from './Components/Home/Purchase';
 import NotFound from './Components/Shared/NotFound';
+import Dashboard from './Components/Dashboard/Dashboard';
+import RequireAdmin from './Components/Login/RequireAdmin';
+import MyProfile from './Components/Dashboard/MyProfile';
+import AddReview from './Components/Dashboard/AddReview';
+import MyOrders from './Components/Dashboard/MyOrders';
+import MakeAdmin from './Components/Dashboard/MakeAdmin';
+import AddProduct from './Components/Dashboard/AddProduct';
+import ManageProducts from './Components/Dashboard/ManageProducts';
+import ManageOrders from './Components/Dashboard/ManageOrders';
 
 
 function App() {
@@ -33,6 +42,16 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="review" element={<AddReview></AddReview>}></Route>
+          <Route path="orders" element={<MyOrders></MyOrders>}></Route>
+          {/* <Route path="payment/:id" element={<Payment></Payment>}></Route> */}
+          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
+          <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path="manageProducts" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+          <Route path="manageOrders" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
