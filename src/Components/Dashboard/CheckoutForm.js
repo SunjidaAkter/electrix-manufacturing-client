@@ -13,7 +13,7 @@ const CheckoutForm = ({ payOrder }) => {
     const { _id, price, name, email } = payOrder;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://calm-bayou-08500.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -78,7 +78,7 @@ const CheckoutForm = ({ payOrder }) => {
                 payOrder: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/paymentOrder/${_id}`, {
+            fetch(`https://calm-bayou-08500.herokuapp.com/paymentOrder/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const ToolDeleteModal = ({ allTool, refetch }) => {
-    const { _id } = allTool;
+
 
     const deleteHandler = (id) => {
-        const url = ` http://localhost:5000/allProducts/${id}`;
+        const url = ` https://calm-bayou-08500.herokuapp.com/allProducts/${id}`;
         fetch(url, {
             method: "DELETE",
         })
@@ -33,7 +33,7 @@ const ToolDeleteModal = ({ allTool, refetch }) => {
                     <div className="modal-action">
                         <button
                             className="btn btn-error text-white"
-                            onClick={() => deleteHandler(_id)}
+                            onClick={() => deleteHandler(allTool)}
                         >
                             Delete
                         </button>

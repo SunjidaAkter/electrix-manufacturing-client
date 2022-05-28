@@ -19,7 +19,7 @@ const ManageProducts = () => {
         refetch,
     } = useQuery("ordersss", () =>
         fetch(
-            `http://localhost:5000/allProducts`,
+            `https://calm-bayou-08500.herokuapp.com/allProducts`,
             {
                 method: "GET",
                 headers: {
@@ -36,7 +36,7 @@ const ManageProducts = () => {
         <div className="bg-neutral bg-opacity-30 h-screen ">
             <div className="bg-neutral bg-opacity-30">
                 <h1 className="text-3xl text-center font-semibold uppercase text-neutral pt-8 mb-3">
-                    My Orders
+                    Manage Tool
                 </h1>
                 <div className="pt-5  px-10 text-neutral">
                     <div className="overflow-x-auto">
@@ -80,7 +80,7 @@ const ManageProducts = () => {
 
                                                     <ToolDeleteModal
                                                         setOrderDeleting={setOrderDeleting}
-                                                        allTool={allTool}
+                                                        allTool={orderDeleting}
                                                         refetch={refetch}
                                                     ></ToolDeleteModal>
                                                 )

@@ -36,7 +36,7 @@ const AddProduct = () => {
                         img: img
                     }
 
-                    fetch('http://localhost:5000/adminTool', {
+                    fetch('https://calm-bayou-08500.herokuapp.com/adminTool', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

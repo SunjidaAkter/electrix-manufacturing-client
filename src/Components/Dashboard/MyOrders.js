@@ -22,7 +22,7 @@ const MyOrders = () => {
         refetch,
     } = useQuery("orderss", () =>
         fetch(
-            `http://localhost:5000/myOrder?email=${user?.email}`,
+            `https://calm-bayou-08500.herokuapp.com/myOrder?email=${user?.email}`,
             {
                 method: "GET",
                 headers: {
@@ -88,15 +88,15 @@ const MyOrders = () => {
                                         <th>
                                             <label
                                                 disabled={myOrder?.transactionId}
-                                                onClick={() => setOrderDeleting(myOrder)}
+                                                onClick={() => setOrderDeleting(myOrder._id)}
                                                 htmlFor="order-delete-modal"
                                                 className="btn btn-xs btn-error text-white"
                                             >
                                                 Delete
                                             </label>
                                             <OrderDeleteModal
-                                                orderDeleting={orderDeleting}
-                                                myOrder={myOrder}
+                                                setOrderDeleting={setOrderDeleting}
+                                                myOrder={orderDeleting}
                                                 refetch={refetch}
                                             ></OrderDeleteModal>
                                         </th>

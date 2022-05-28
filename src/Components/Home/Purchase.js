@@ -32,45 +32,37 @@ const Purchase = () => {
         const mobileNo = data.mobileNo;
         const address = data.address;
         const orderQuantity = data.orderQuantity;
-        if (mobileNo && address && orderQuantity) {
-            if (orderQuantity < tool?.minQuantity) {
-                toast.error("You have to order minimun quantiy");
-            } else if (orderQuantity > tool?.maxQuantity) {
-                toast.error("We don't have that much stock");
-            } else {
-                const totalPrice = parseInt(data.orderQuantity) * parseInt(tool.price);
-                const myOrder = {
-                    name,
-                    mobileNo,
-                    address,
-                    email,
-                    orderQuantity,
-                    img: tool?.img,
-                    toolName: tool?.name,
-                    price: tool?.price,
-                    quantity: tool?.quantity,
-                    totalPrice
-                };
+        const totalPrice = parseInt(data.orderQuantity) * parseInt(tool.price);
+        const myOrder = {
+            name,
+            mobileNo,
+            address,
+            email,
+            orderQuantity,
+            img: tool?.img,
+            toolName: tool?.name,
+            price: tool?.price,
+            quantity: tool?.quantity,
+            totalPrice
+        };
 
-                fetch("http://localhost:5000/order", {
-                    method: "POST",
-                    body: JSON.stringify(myOrder),
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((result) => {
-                        if (result.acknowledged) {
-                            toast.success("Your order has successfully submitted!");
-                            e.target.reset();
-                        }
-                    });
-            };
-        } else {
-            toast.error("Plese Fill Up this Form");
-        }
-
+        fetch("http://localhost:5000/order", {
+            method: "POST",
+            body: JSON.stringify(myOrder),
+            headers: {
+                "content-type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.acknowledged) {
+                    toast.success("Your order has successfully submitted!");
+                    e.target.reset();
+                }
+            });
+        // var Error;
+        // const minQuantity={tool?.minQuantity};
+        // if(orderQuantity<34){}
     };
     return (
         <div className='px-12 flex lg:flex lg:flex-row flex-col w-full '>
@@ -190,6 +182,8 @@ const Purchase = () => {
                         <input
                             name="orderQuantity"
                             type="number"
+                            min={tool?.minQuantity}
+                            max={tool?.maxQuantity}
                             required
                             placeholder="Order quantity"
                             className="input input-bordered w-full max-w-xs"
@@ -212,3 +206,80 @@ const Purchase = () => {
 };
 
 export default Purchase;
+{/* <div className='flex justify-between'>
+    <div className=''>
+        <span class="label-text"><small>User name</small></span>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
+    </div>
+    <div className=''>
+        <span class="label-text"><small>User mail</small></span>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
+    </div>
+</div>
+
+<div className=''>
+    <span class="label-text"><small>User phone number</small></span>
+    <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
+</div>
+<div className=''>
+<span class="label-text">What is your name?</span>
+<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
+</div>
+<div className=''>
+<span class="label-text">What is your name?</span>
+<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
+
+</div> */}
+// if (phoneNumber && address && quantity) {
+//     if (quantity < tool.orderQuantity) {
+//       toast.error("You have to order minimun quantiy", {
+//         id: 1,
+//         position: "bottom-right",
+//       });
+//     } else if (quantity > tool.availableQuantity) {
+//       toast.error("We don't have that much stock", {
+//         id: 2,
+//         position: "bottom-right",
+//       });
+//     } else {
+//       // const data = { };
+//       const price = quantity * tool.perPartsPrice;
+//       fetcher
+//         .post("/order", {
+//           toolsId: tool._id,
+//           toolsName: tool.name,
+//           name,
+//           email,
+//           phoneNumber,
+//           address,
+//           quantity,
+//           price,
+//         })
+//         .then((res) => {
+//           if (res.data) {
+//             toast.success("Order Successfull");
+
+//             event.target.reset();
+//             navigate("/dashboard/my-orders");
+//           }
+//         });
+//     }
+//   } else {
+//     toast.error("Plese Fill Up this Form", {
+//       id: 4,
+//       position: "bottom-right",
+//     });
+//   }
+// };
+{/* <button */ }
+                    // disabled={quantity<tool.orderQuantity}
+                //     type="submit"
+                //     className={`btn btn-md w-full ${
+                //       quantity < tool.orderQuantity ||
+                //       quantity > tool.availableQuantity
+                //         ? "btn-disabled bg-zinc-500"
+                //         : "btn-primary"
+                //     }`}
+                //   >
+                //     Order
+                //   </button>

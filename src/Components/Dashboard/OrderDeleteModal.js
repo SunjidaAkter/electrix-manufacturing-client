@@ -2,10 +2,11 @@ import React from 'react';
 
 
 const OrderDeleteModal = ({ myOrder, refetch }) => {
-    const { _id } = myOrder;
+    // const { _id } = myOrder;
 
     const deleteHandler = (id) => {
-        const url = ` http://localhost:5000/myOrder/${id}`;
+        console.log(id);
+        const url = ` https://calm-bayou-08500.herokuapp.com/myOrder/${id}`;
         fetch(url, {
             method: "DELETE",
         })
@@ -33,7 +34,7 @@ const OrderDeleteModal = ({ myOrder, refetch }) => {
                     <div className="modal-action">
                         <button
                             className="btn btn-error text-white"
-                            onClick={() => deleteHandler(_id)}
+                            onClick={() => deleteHandler(myOrder)}
                         >
                             Delete
                         </button>

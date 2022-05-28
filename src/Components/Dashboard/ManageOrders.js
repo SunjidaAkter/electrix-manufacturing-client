@@ -15,7 +15,7 @@ const ManageOrders = () => {
         refetch,
     } = useQuery("orderses", () =>
         fetch(
-            `http://localhost:5000/allOrder`,
+            `https://calm-bayou-08500.herokuapp.com/allOrder`,
             {
                 method: "GET",
                 headers: {
@@ -28,7 +28,7 @@ const ManageOrders = () => {
         return <Loading></Loading>
     }
     const pendingHandler = (id) => {
-        fetch(` http://localhost:5000/allOrder/${id}`, {
+        fetch(` https://calm-bayou-08500.herokuapp.com/allOrder/${id}`, {
             method: "PUT",
             body: JSON.stringify({
                 shipped: true,

@@ -62,7 +62,7 @@ const Nav = () => {
                                 <MenuIcon className='w-6'></MenuIcon>
                             </label>
                         )}
-                        <li>{user ? <button className="btn px-0 bg-white border-0" onClick={signout} >SIGN OUT</button> : <Link to="/signin">SIGN IN</Link>}</li>
+                        <li>{user ? <button className="hover:text-white btn px-0 bg-white border-0" onClick={signout} >SIGN OUT</button> : <Link to="/signin">SIGN IN</Link>}</li>
                     </ul>
                 </div>
             </div>

@@ -17,7 +17,7 @@ const ProfileModal = ({ setOpenModal, refetch }) => {
         const data = { phone, address, study, facebook, instagram, twitter };
         if (phone && address && study && facebook && instagram && twitter) {
             fetch(
-                `http://localhost:5000/currentUser/${email}`,
+                `https://calm-bayou-08500.herokuapp.com/currentUser/${email}`,
                 {
                     method: "PUT",
                     headers: {
