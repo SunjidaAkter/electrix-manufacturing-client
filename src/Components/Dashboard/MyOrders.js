@@ -95,6 +95,7 @@ const MyOrders = () => {
                                                 Delete
                                             </label>
                                             <OrderDeleteModal
+                                                orderDeleting={orderDeleting}
                                                 myOrder={myOrder}
                                                 refetch={refetch}
                                             ></OrderDeleteModal>

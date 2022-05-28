@@ -64,7 +64,7 @@ const SignIn = () => {
         <div className="hero min-h-screen" style={{ background: `url("https://html.modernwebtemplates.com/electrix/images/slide03.jpg")` }}>
             <div className="hero-overlay bg-opacity-80"></div>
             <div className='flex h-screen justify-center items-center'>
-                <div className="card w-96 bg-base-100 shadow-2xl">
+                <div className="w-full bg-base-100 shadow-2xl">
                     <div className="card-body">
                         <h2 className="text-center text-2xl font-bold">SIGN IN</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>

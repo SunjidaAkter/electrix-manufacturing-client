@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const OrderDeleteModal = ({ myOrder, refetch }) => {
-    const { name, _id } = myOrder;
+    const { _id } = myOrder;
 
     const deleteHandler = (id) => {
         const url = ` http://localhost:5000/myOrder/${id}`;
@@ -27,7 +27,7 @@ const OrderDeleteModal = ({ myOrder, refetch }) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h3 className="font-extrabold text-lg text-error">
-                        {name}, are you sure you want to delete it? !
+                        Are you sure you want to delete it? !
                     </h3>
 
                     <div className="modal-action">

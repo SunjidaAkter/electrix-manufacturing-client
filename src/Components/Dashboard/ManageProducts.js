@@ -69,21 +69,24 @@ const ManageProducts = () => {
                                         <th>
                                             <label
                                                 disabled={allTool?.transactionId}
-                                                onClick={() => setOrderDeleting(allTool)}
+                                                onClick={() => setOrderDeleting(allTool._id)}
                                                 htmlFor="order-delete-modal"
                                                 className="btn btn-xs btn-error text-white"
                                             >
                                                 Delete
                                             </label>
                                             {
-                                                orderDeleting &&
-                                                <ToolDeleteModal
-                                                    orderDeleting={orderDeleting}
-                                                    allTool={allTool}
-                                                    refetch={refetch}
-                                                ></ToolDeleteModal>
+                                                orderDeleting && (
 
+                                                    <ToolDeleteModal
+                                                        setOrderDeleting={setOrderDeleting}
+                                                        allTool={allTool}
+                                                        refetch={refetch}
+                                                    ></ToolDeleteModal>
+                                                )
                                             }
+
+
                                         </th>
                                     </tr>
 

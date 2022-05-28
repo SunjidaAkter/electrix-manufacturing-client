@@ -32,41 +32,49 @@ const Purchase = () => {
         const mobileNo = data.mobileNo;
         const address = data.address;
         const orderQuantity = data.orderQuantity;
-        const totalPrice = parseInt(data.orderQuantity) * parseInt(tool.price);
-        const myOrder = {
-            name,
-            mobileNo,
-            address,
-            email,
-            orderQuantity,
-            img: tool?.img,
-            toolName: tool?.name,
-            price: tool?.price,
-            quantity: tool?.quantity,
-            totalPrice
-        };
+        if (mobileNo && address && orderQuantity) {
+            if (orderQuantity < tool?.minQuantity) {
+                toast.error("You have to order minimun quantiy");
+            } else if (orderQuantity > tool?.maxQuantity) {
+                toast.error("We don't have that much stock");
+            } else {
+                const totalPrice = parseInt(data.orderQuantity) * parseInt(tool.price);
+                const myOrder = {
+                    name,
+                    mobileNo,
+                    address,
+                    email,
+                    orderQuantity,
+                    img: tool?.img,
+                    toolName: tool?.name,
+                    price: tool?.price,
+                    quantity: tool?.quantity,
+                    totalPrice
+                };
 
-        fetch("http://localhost:5000/order", {
-            method: "POST",
-            body: JSON.stringify(myOrder),
-            headers: {
-                "content-type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result.acknowledged) {
-                    toast.success("Your order has successfully submitted!");
-                    e.target.reset();
-                }
-            });
-        // var Error;
-        // const minQuantity={tool?.minQuantity};
-        // if(orderQuantity<34){}
+                fetch("http://localhost:5000/order", {
+                    method: "POST",
+                    body: JSON.stringify(myOrder),
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        if (result.acknowledged) {
+                            toast.success("Your order has successfully submitted!");
+                            e.target.reset();
+                        }
+                    });
+            };
+        } else {
+            toast.error("Plese Fill Up this Form");
+        }
+
     };
     return (
-        <div className='px-12 flex flex-col w-full lg:flex-row'>
-            <div className='grid flex-grow card bg-base-300 rounded-box place-items-center'>
+        <div className='px-12 flex lg:flex lg:flex-row flex-col w-full '>
+            <div className='grid lg:w-1/2 w-full px-5 card bg-base-300 rounded-box place-items-center'>
                 <div className='pb-5 my-5 shadow-2xl rounded-lg border-inherit bg-white'>
                     <div className='flex justify-center '>
                         <img className='w-9/12 rounded ' src={tool?.img} alt="" />
@@ -83,7 +91,7 @@ const Purchase = () => {
                 </div>
             </div>
             <div class="divider lg:divider-horizontal"><div class="rating gap-1"><input type="radio" name="rating-3" class="mask mask-heart bg-primary" /></div></div>
-            <div className='grid flex-grow card bg-base-300 rounded-box px-16'>
+            <div className='grid lg:w-1/2 w-full card bg-base-300 rounded-box px-16'>
                 <p className='mt-8 mb- font-extrabold text-primary text-5xl'>Order Details</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -182,8 +190,6 @@ const Purchase = () => {
                         <input
                             name="orderQuantity"
                             type="number"
-                            min={tool?.minQuantity}
-                            max={tool?.maxQuantity}
                             required
                             placeholder="Order quantity"
                             className="input input-bordered w-full max-w-xs"
@@ -206,27 +212,3 @@ const Purchase = () => {
 };
 
 export default Purchase;
-{/* <div className='flex justify-between'>
-    <div className=''>
-        <span class="label-text"><small>User name</small></span>
-        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
-    </div>
-    <div className=''>
-        <span class="label-text"><small>User mail</small></span>
-        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
-    </div>
-</div>
-
-<div className=''>
-    <span class="label-text"><small>User phone number</small></span>
-    <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
-</div>
-<div className=''>
-<span class="label-text">What is your name?</span>
-<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
-</div>
-<div className=''>
-<span class="label-text">What is your name?</span>
-<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-sm" />
-
-</div> */}

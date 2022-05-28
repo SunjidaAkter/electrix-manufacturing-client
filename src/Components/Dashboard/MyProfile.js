@@ -47,7 +47,7 @@ const MyProfile = () => {
           {" "}
           My Profile
         </h1> */}
-                <div className="px-24  bg-neutral bg-opacity-80 h-full w-full mx-auto">
+                <div className="lg:px-24 px-2 bg-neutral bg-opacity-90 h-full w-full mx-auto">
                     <div className=" pt-10 flex-col md:flex-row ">
                         <div className="avatar online">
                             <div className="w-32 rounded-full">
@@ -65,9 +65,9 @@ const MyProfile = () => {
                             <h1 className="text-3xl font-semibold text-white  mt-5 ">
                                 {user?.displayName}
                             </h1>
-                            <p className="flex">
+                            <p className="flex text-teal-200">
                                 {" "}
-                                <MailIcon className="w-6 h-6 mr-3"></MailIcon>
+                                <MailIcon className="text-white w-6 h-6 mr-3"></MailIcon>
                                 <span>{user?.email}</span>
                             </p>
                         </div>
@@ -78,26 +78,26 @@ const MyProfile = () => {
                                 <h2 className="text-2xl font-semibold text-white ">
                                     Information
                                 </h2>
-                                <p className="mt-3 flex text-[15px] items-center">
+                                <p className="mt-3 flex text-[15px] text-teal-200 items-center">
                                     <UserIcon className="w-6 h-6 mr-3  text-white"></UserIcon>{" "}
                                     {user?.displayName}
                                 </p>
-                                <p className="mt-2 flex text-[15px] items-center">
+                                <p className="mt-2 flex text-[15px] text-teal-200 items-center">
                                     <MailIcon className="w-6 h-6 mr-3  text-white"></MailIcon>{" "}
                                     {user?.email}
                                 </p>
-                                <p className="mt-2 flex text-[15px] items-center">
+                                <p className="mt-2 flex text-[15px] text-teal-200 items-center">
                                     <PhoneIcon className="w-6 h-6 mr-3  text-white"></PhoneIcon>{" "}
                                     +88-{currentUser?.phone ? currentUser?.phone : 12345678}
                                 </p>
-                                <p className="mt-2 flex text-[15px] items-center">
+                                <p className="mt-2 flex text-[15px] text-teal-200 items-center">
                                     <MapIcon className="w-6 h-6 mr-3  text-white"></MapIcon>{" "}
                                     {currentUser?.address
                                         ? currentUser.address
                                         : "No address given"}
                                 </p>
 
-                                <p className="mt-2 flex text-[15px] items-center">
+                                <p className="mt-2 flex text-[15px] text-teal-200 items-center">
                                     <BookOpenIcon className="w-6 h-6 mr-3 text-white"></BookOpenIcon>{" "}
                                     {currentUser?.study
                                         ? currentUser.study
@@ -108,7 +108,7 @@ const MyProfile = () => {
                                 <h2 className="text-2xl font-semibold text-white ">
                                     Social Media
                                 </h2>
-                                <p className="mt-3 flex items-center">
+                                <p className="mt-3 flex items-center text-teal-200">
                                     <img src={facebook} className="w-6 mr-4 rounded-full" alt="" />
                                     <span className="text-sm italic">
                                         {currentUser?.facebook ? currentUser.facebook
@@ -116,7 +116,7 @@ const MyProfile = () => {
 
                                     </span>
                                 </p>
-                                <p className="mt-2 flex items-center">
+                                <p className="mt-2 flex items-center text-teal-200">
                                     <img src={insta} className="w-6 mr-4 rounded-full" alt="" />
                                     <span className="text-sm italic">
                                         {currentUser?.instagram
@@ -124,7 +124,7 @@ const MyProfile = () => {
                                             : "Instagram info not given"}
                                     </span>
                                 </p>
-                                <p className="mt-2 flex items-center">
+                                <p className="mt-2 flex items-center text-teal-200">
                                     <img src={twitter} className="w-6 mr-4 rounded-full" alt="" />
                                     <span className="text-sm italic">
                                         {currentUser?.twitter
@@ -134,11 +134,11 @@ const MyProfile = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="m-auto mt-10 mb-10">
+                        <div className=" mt-10 mb-10">
                             <label
                                 onClick={() => setOpenModal(true)}
                                 htmlFor="update-profile"
-                                className="btn modal-button"
+                                className="mb-11 btn modal-button"
                             >
                                 Update profile
                             </label>
