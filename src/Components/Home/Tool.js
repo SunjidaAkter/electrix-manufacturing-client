@@ -5,7 +5,9 @@ const Tool = ({ tool }) => {
     const { maxQuantity, minQuantity, _id, name, description, img, price } = tool;
     return (
         <div className='p-5 flex flex-col justify-between my-5 shadow-2xl rounded-lg border-inherit'>
-            <img className='w-full rounded ' src={img} alt="" />
+            <div className='flex justify-center items-center h-full'>
+                <img className='w-full rounded ' src={img} alt="" />
+            </div>
             <div>
                 <div className="">
                     <h2 className="text-secondary text-4xl mt-8 font-bold pt-2">{name}</h2>

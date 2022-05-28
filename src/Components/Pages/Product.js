@@ -5,8 +5,10 @@ const Product = ({ tool }) => {
     const { maxQuantity, minQuantity, _id, name, description, img, price } = tool;
     return (
         <div className='p-5 flex flex-col justify-between my-5 shadow-2xl rounded-lg border-inherit'>
-            <div>
+            <div className='flex justify-center items-center h-full'>
                 <img className='w-full rounded ' src={img} alt="" />
+            </div>
+            <div>
                 <div className="">
                     <h2 className="text-secondary text-4xl mt-8 font-bold pt-2">{name}</h2>
                     <div className='flex justify-around items-center '>
@@ -18,10 +20,10 @@ const Product = ({ tool }) => {
                 </div>
 
 
+                <Link style={{ textDecoration: 'none' }} to={`/tool/${_id}`}>
+                    <button class="btn btn-neutral w-full">PURCHASE</button>
+                </Link>
             </div>
-            <Link style={{ textDecoration: 'none' }} to={`/tool/${_id}`}>
-                <button class="btn btn-neutral w-full">PURCHASE</button>
-            </Link>
         </div>
     );
 };

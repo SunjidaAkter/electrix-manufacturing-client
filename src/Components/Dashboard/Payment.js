@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import CheckoutForm from './CheckoutForm';
-// yR@ArcwZ3uc+H%3
 
 const stripePromise = loadStripe('pk_test_51L485xFE0t8jCtbzq0bFtqucXXj8HAVJwFiQaIZkklqrhNzE07j1irkucYfdy8atTtHCViFk23KMwZBmpqJkX6FE00xjmf8xSp');
 

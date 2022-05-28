@@ -11,34 +11,9 @@ import OrderDeleteModal from './OrderDeleteModal';
 
 const MyOrders = () => {
     const navigate = useNavigate();
-    // const [reload, setReload] = useState(false);
-    // const [myOrders, setMyOrders] = useState([]);
     const [user, loading] = useAuthState(auth);
     const [orderDeleting, setOrderDeleting] = useState(null);
 
-    // useEffect(() => {
-    //     const url = ` http://localhost:5000/myOrder?email=${user?.email}`;
-    //     const myOrders = async () => {
-    //         if (loading) {
-    //             return <Loading />;
-    //         }
-
-    //         try {
-    //             const { data } = await axios(url, {
-    //                 headers: {
-    //                     authorization: `${localStorage.getItem("accessToken")}`,
-    //                 },
-    //             });
-    //             setMyOrders(data);
-    //         } catch (error) {
-    //             if (error.response.status === 403 || error.response.status === 401) {
-    //                 signOut(auth);
-    //                 navigate("/signin");
-    //             }
-    //         }
-    //     };
-    //     myOrders();
-    // }, [user, reload]);
 
 
     const {
@@ -72,8 +47,8 @@ const MyOrders = () => {
                             <thead>
                                 <tr>
                                     <th className="">Index</th>
-                                    <th className="">My Info</th>
                                     <th className="">Tool Info</th>
+                                    <th className="">My Info</th>
                                     <th className="">Quantity</th>
                                     <th className="">Total Price</th>
                                     <th className="">Payment</th>
