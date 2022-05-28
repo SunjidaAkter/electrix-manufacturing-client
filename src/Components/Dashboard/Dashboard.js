@@ -9,9 +9,9 @@ const DashboardSidebar = ({ children }) => {
     return (
         <div class='drawer drawer-mobile mt-16 bg-white'>
             <input id='my-drawer-2' type='checkbox' class='drawer-toggle' />
-            <div class='drawer-content flex flex-col items-end justify-start'>
+            <div class='drawer-content flex flex-col '>
                 {/* <!-- Page content here --> */}
-                <label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden">Open Drawer</label>
+
                 <Outlet></Outlet>
             </div>
             <div class='drawer-side '>
@@ -25,9 +25,10 @@ const DashboardSidebar = ({ children }) => {
 
                     </>}
                     {admin && <>
-                        <li><Link to="/dashboard/users">All Users</Link></li>
-                        <li><Link to="/dashboard/addDoctor">Add a Doctor</Link></li>
-                        <li><Link to="/dashboard/manageDoctor">Manage Doctors</Link></li>
+                        <li><Link to="/dashboard/addProduct">Add a Tool</Link></li>
+                        <li><Link to="/dashboard/manageProducts">Manage Tools</Link></li>
+                        <li><Link to="/dashboard/manageOrders">Manage Orders</Link></li>
+                        <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
                     </>}
                 </ul>
             </div>

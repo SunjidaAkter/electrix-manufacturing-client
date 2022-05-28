@@ -43,7 +43,7 @@ const Reviews = () => {
                         {reviews.map((review) => (
                             <SwiperSlide key={review._id}>
                                 <div class="avatar">
-                                    <div class="ml-5 w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <div class="ml-5 w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         <img src={review?.img} />
                                     </div>
                                     <div className="mt-2">

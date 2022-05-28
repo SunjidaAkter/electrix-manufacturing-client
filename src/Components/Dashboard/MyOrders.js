@@ -1,11 +1,142 @@
-import React from 'react';
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
+import MyOrder from './MyOrder';
+import OrderDeleteModal from './OrderDeleteModal';
 
 const MyOrders = () => {
-    return (
-        <div>
+    const navigate = useNavigate();
+    // const [reload, setReload] = useState(false);
+    // const [myOrders, setMyOrders] = useState([]);
+    const [user, loading] = useAuthState(auth);
+    const [orderDeleting, setOrderDeleting] = useState(null);
 
+    // useEffect(() => {
+    //     const url = ` http://localhost:5000/myOrder?email=${user?.email}`;
+    //     const myOrders = async () => {
+    //         if (loading) {
+    //             return <Loading />;
+    //         }
+
+    //         try {
+    //             const { data } = await axios(url, {
+    //                 headers: {
+    //                     authorization: `${localStorage.getItem("accessToken")}`,
+    //                 },
+    //             });
+    //             setMyOrders(data);
+    //         } catch (error) {
+    //             if (error.response.status === 403 || error.response.status === 401) {
+    //                 signOut(auth);
+    //                 navigate("/signin");
+    //             }
+    //         }
+    //     };
+    //     myOrders();
+    // }, [user, reload]);
+
+
+    const {
+        isLoading,
+        data: myOrders,
+        refetch,
+    } = useQuery("orderss", () =>
+        fetch(
+            `http://localhost:5000/myOrder?email=${user?.email}`,
+            {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            }
+        ).then((res) => res.json())
+    );
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    return (
+        <div className="bg-neutral bg-opacity-30 h-screen ">
+            <div className="bg-neutral bg-opacity-30">
+                <h1 className="text-3xl text-center font-semibold uppercase text-neutral pt-8 mb-3">
+                    My Orders
+                </h1>
+                <div className="pt-5  px-10 text-neutral">
+                    <div className="overflow-x-auto">
+                        <table className="table table-zebra mb-10 w-7/12 mx-auto">
+                            <thead>
+                                <tr>
+                                    <th className="">Index</th>
+                                    <th className="">My Info</th>
+                                    <th className="">Tool Info</th>
+                                    <th className="">Quantity</th>
+                                    <th className="">Total Price</th>
+                                    <th className="">Payment</th>
+                                    <th className="">Delete</th>
+                                    <th className="">Transaction ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {
+                                    myOrders?.map((myOrder, index) => <tr>
+                                        <th>{index + 1}</th>
+                                        <td>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="avatar">
+                                                    <div class="mask mask-squircle w-12 h-12">
+                                                        <img src={myOrder?.img} alt="" />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="font-bold">{myOrder?.toolName}</div>
+                                                    <div class="text-sm opacity-50">Unit-price : ${myOrder?.price}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {myOrder?.name}
+                                            <br />
+                                            <span class="badge badge-ghost badge-sm">{myOrder?.address}</span>
+                                        </td>
+                                        <td>{myOrder?.orderQuantity}</td>
+                                        <td>{myOrder?.totalPrice}</td>
+                                        <th>
+                                            {myOrder?.paid ? <p><span className='text-success'>Paid</span></p> : <button className="btn btn-sm btn-success" onClick={() => navigate(`/dashboard/payment/${myOrder?._id}`)}>Pay</button>}
+                                        </th>
+                                        <th>
+                                            <label
+                                                disabled={myOrder?.transactionId}
+                                                onClick={() => setOrderDeleting(myOrder)}
+                                                htmlFor="order-delete-modal"
+                                                className="btn btn-xs btn-error text-white"
+                                            >
+                                                Delete
+                                            </label>
+                                            <OrderDeleteModal
+                                                myOrder={myOrder}
+                                                refetch={refetch}
+                                            ></OrderDeleteModal>
+                                        </th>
+                                        <td>{myOrder?.transactionId ? myOrder?.transactionId : "Not Paid"}</td>
+                                    </tr>
+
+
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
+
 
 export default MyOrders;

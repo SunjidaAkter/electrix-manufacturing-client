@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Loading from './Loading'
@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth';
 
 const Nav = () => {
     let [user, loading] = useAuthState(auth);
+    const { pathname } = useLocation();
     if (loading) {
         return <Loading />;
     }
@@ -44,7 +45,17 @@ const Nav = () => {
             <div class="navbar-end">
                 <div class="flex-none">
                     <ul class="menu menu-horizontal p-0">
-
+                        {pathname.includes("/dashboard") && (
+                            <label
+                                htmlFor="my-drawer-2"
+                                tabIndex="0"
+                                className="btn btn-ghost btn-circle lg:hidden"
+                            >
+                                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                                </label>
+                            </label>
+                        )}
                         <li>{user ? <button className="btn btn-ghost" onClick={signout} >SIGN OUT</button> : <Link to="/signin">SIGN IN</Link>}</li>
                     </ul>
                 </div>

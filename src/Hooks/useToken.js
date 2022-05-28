@@ -1,4 +1,6 @@
+import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react"
+import auth from "../firebase.init";
 
 const useToken = user => {
     const [token, setToken] = useState('');

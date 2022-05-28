@@ -15,12 +15,11 @@ const Purchase = () => {
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `http://localhost:5000/currentTool/${id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setTool(data));
     }, [id, reload]);
-    let error1;
 
     if (loading) {
         return <Loading ></Loading>;
@@ -33,7 +32,7 @@ const Purchase = () => {
         const mobileNo = data.mobileNo;
         const address = data.address;
         const orderQuantity = data.orderQuantity;
-
+        const totalPrice = parseInt(data.orderQuantity) * parseInt(tool.price);
         const myOrder = {
             name,
             mobileNo,
@@ -44,8 +43,7 @@ const Purchase = () => {
             toolName: tool?.name,
             price: tool?.price,
             quantity: tool?.quantity,
-            totalPrice: tool?.totalPrice,
-            status: "unpaid"
+            totalPrice
         };
 
         fetch("http://localhost:5000/order", {
@@ -58,7 +56,7 @@ const Purchase = () => {
             .then((response) => response.json())
             .then((result) => {
                 if (result.acknowledged) {
-                    toast.success("The product has been added correctly!");
+                    toast.success("Your order has successfully submitted!");
                     e.target.reset();
                 }
             });
