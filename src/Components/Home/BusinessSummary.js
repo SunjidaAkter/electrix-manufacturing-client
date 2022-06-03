@@ -3,6 +3,9 @@ import countries from '../../Assets/coronavirus.png'
 import briefing from '../../Assets/briefing.png'
 import favourite from '../../Assets/favourite.png'
 import rating from '../../Assets/rating.png'
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
+
 
 const BusinessSummary = () => {
     return (
@@ -18,7 +21,15 @@ const BusinessSummary = () => {
                             <img src={countries} alt="" />
                         </div>
                         <div>
-                            <div class="w-full flex justify-center font-light  lg:stat-value text-neutral text-base lg:text-6xl ">72</div>
+                            <div class="w-full flex justify-center font-light  lg:stat-value text-neutral font-num text-base lg:text-6xl ">
+                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
+                                    {({ isVisible }) => (
+                                        <div >
+                                            {isVisible ? null : <CountUp end={72} duration={5} />}
+                                        </div>
+                                    )}
+                                </VisibilitySensor>
+                            </div>
                             <div class="stat-title text-primary lg:font-bold font-normal text-xs lg:text-4xl font-bold">Countries</div>
 
                         </div>
@@ -29,7 +40,16 @@ const BusinessSummary = () => {
                             <img src={briefing} alt="" />
                         </div>
                         <div>
-                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">500+</div>
+                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl font-num">
+                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
+                                    {({ isVisible }) => (
+                                        <div >
+                                            {isVisible ? null : <CountUp end={500} duration={5} suffix=" +" />}
+                                        </div>
+                                    )}
+                                </VisibilitySensor>
+                                {/* <CountUp end={500} duration={5} suffix=" +"></CountUp> */}
+                            </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Complete<br />Projects</div>
 
                         </div>
@@ -40,7 +60,16 @@ const BusinessSummary = () => {
                             <img src={rating} alt="" />
                         </div>
                         <div>
-                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">245+</div>
+                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl font-num">
+                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
+                                    {({ isVisible }) => (
+                                        <div >
+                                            {isVisible ? null : <CountUp end={245} duration={5} suffix=" +" />}
+                                        </div>
+                                    )}
+                                </VisibilitySensor>
+                                {/* <CountUp end={245} duration={5} suffix=" +"></CountUp> */}
+                            </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Happy<br />Clients</div>
 
                         </div>
@@ -51,7 +80,16 @@ const BusinessSummary = () => {
                             <img src={favourite} alt="" />
                         </div>
                         <div>
-                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl ">454+</div>
+                            <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl font-num">
+                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
+                                    {({ isVisible }) => (
+                                        <div >
+                                            {isVisible ? null : <CountUp end={454} duration={5} suffix=" +" />}
+                                        </div>
+                                    )}
+                                </VisibilitySensor>
+                                {/* <CountUp end={454} duration={5} suffix=" +"></CountUp> */}
+                            </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Reviews</div>
 
                         </div>

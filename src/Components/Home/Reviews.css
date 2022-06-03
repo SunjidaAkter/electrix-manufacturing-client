@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Bangers&family=Bebas+Neue&family=Courgette&family=Inter:wght@400;700&family=Joan&family=Lobster&family=Manrope:wght@700&family=Poppins:wght@500;600;700&display=swap');
+/* font-family: 'Balsamiq Sans', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Inter', sans-serif;
+font-family: 'Joan', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Manrope', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+.font-num {
+    font-family: 'Joan', serif;
+
+}
+
 .reviews {
 
-    background-image: url("https://html.modernwebtemplates.com/electrix/img/parallax/testimonials.jpg");
+    /* background-image: url("https://html.modernwebtemplates.com/electrix/img/parallax/testimonials.jpg"); */
+    background-image: url("https://html.modernwebtemplates.com/electrix/img/parallax/top.jpg");
     background-attachment: fixed;
 }
 

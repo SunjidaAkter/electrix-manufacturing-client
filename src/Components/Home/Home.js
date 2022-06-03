@@ -5,6 +5,7 @@ import BusinessSummary from './BusinessSummary';
 import NewsBLog from './NewsBlog';
 import Reviews from './Reviews';
 import Tools from './Tools';
+import Welcome from './Welcome';
 
 const Home = () => {
     return (
@@ -12,8 +13,9 @@ const Home = () => {
             <Banner></Banner>
             <Tools></Tools>
             <Reviews></Reviews>
-            <BusinessSummary></BusinessSummary>
+            <Welcome></Welcome>
             <About></About>
+            <BusinessSummary></BusinessSummary>
             <NewsBLog></NewsBLog>
         </div>
     );

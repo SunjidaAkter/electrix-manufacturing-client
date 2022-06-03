@@ -1,39 +1,49 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Loading from './Loading'
 import { signOut } from 'firebase/auth';
 import {
+    AnnotationIcon,
+    BanIcon,
+    BeakerIcon,
+    BookmarkIcon,
     BookOpenIcon,
+    ChartSquareBarIcon,
+    CogIcon,
+    HomeIcon,
     MailIcon,
     MapIcon,
     MenuIcon,
     PhoneIcon,
     UserIcon,
 } from "@heroicons/react/solid";
+import CustomLink from './CustomLink';
 
 const Nav = () => {
     let [user, loading] = useAuthState(auth);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
     if (loading) {
         return <Loading />;
     }
 
     const signout = () => {
         signOut(auth);
+        navigate('/');
         // localStorage.removeItem('accessToken');
     };
     const menuItems = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/portfolio">My Portfolio</Link></li>
+        <li><CustomLink className="font-normal mt-2 flex text-[20px]  items-center" to="/"><HomeIcon className="w-5 h-5 mr-1"></HomeIcon> HOME</CustomLink></li>
+        <li><CustomLink className="font-normal mt-2 flex text-[20px]  items-center" to="/blogs"><AnnotationIcon className="w-5 h-5 mr-1"></AnnotationIcon> BLOGS</CustomLink></li>
+        <li><CustomLink className="font-normal mt-2 flex text-[20px]  items-center" to="/portfolio"><BookmarkIcon className="w-5 h-5 mr-1"></BookmarkIcon>MY PORTFOLIO</CustomLink></li>
         {
-            user && <li><Link to="/dashboard">Dashboard</Link></li>
+            user && <li><CustomLink className="font-normal  mt-2 flex text-[20px]  items-center" to="/dashboard"><CogIcon className="w-5 h-5 mr-1"></CogIcon> DASHBOARD</CustomLink></li>
         }
     </>
     return (
-        <div class="lg:px-12 px-0 navbar bg-base-100">
+        <div class="lg:px-12 px-0 navbar bg-base-100 fixed z-50 shadow-lg top-0">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -45,7 +55,7 @@ const Nav = () => {
                 </div>
                 <img src="https://html.modernwebtemplates.com/electrix/images/logo.png" alt="" />
             </div>
-            <div class="navbar-center hidden lg:flex">
+            <div class="navbar-center hidden pl-24 lg:flex">
                 <ul class="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
@@ -62,7 +72,7 @@ const Nav = () => {
                                 <MenuIcon className='w-6'></MenuIcon>
                             </label>
                         )}
-                        <li>{user ? <button className="hover:text-white btn px-0 bg-white border-0" onClick={signout} >SIGN OUT</button> : <Link to="/signin">SIGN IN</Link>}</li>
+                        <li>{user ? <button className="hover:text-white btn px-0 bg-white border-0 font-bold tect-neutral" onClick={signout} >SIGN OUT</button> : <CustomLink className="font-bold" to="/signin">SIGN IN</CustomLink>}</li>
                     </ul>
                 </div>
             </div>

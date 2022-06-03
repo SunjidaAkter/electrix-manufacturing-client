@@ -25,6 +25,7 @@ import ManageOrders from './Components/Dashboard/ManageOrders';
 import Users from './Components/Dashboard/Users';
 import Payment from './Components/Dashboard/Payment';
 import Products from './Components/Pages/Products';
+import CopyRight from './Components/Shared/CopyRight';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
+      <CopyRight></CopyRight>
       <ToastContainer></ToastContainer>
     </div>
   );
