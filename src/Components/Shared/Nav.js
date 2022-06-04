@@ -59,7 +59,6 @@ const Nav = () => {
                 <ul class="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
-
             </div>
             <div class="navbar-end">
                 <div class="flex-none">
