@@ -58,6 +58,7 @@ const Nav = () => {
             <div class="navbar-center hidden pl-24 lg:flex">
                 <ul class="menu menu-horizontal p-0">
                     {menuItems}
+
                 </ul>
             </div>
             <div class="navbar-end">
