@@ -14,6 +14,12 @@
 * mongoDB cloud is used to store the data of Services the manufacturers Provided.
 * Custom Hook is used for fetching data from API.
 
+## Admin Info
+* Admin Email : a@b.com
+* Admin Password : 121212
+
 ## Tools
 *  React, Routing , Tailwind, Firebase, ExpressJS, MongoDB, JWT token, Stripe, Heroku .
+
+
 
