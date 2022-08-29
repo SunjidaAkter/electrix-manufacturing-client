@@ -36,8 +36,8 @@ const MyOrders = () => {
     }
 
     return (
-        <div className="bg-neutral bg-opacity-30 h-screen ">
-            <div className="bg-neutral bg-opacity-30">
+        <div className="h-screen">
+            <div className="bg-neutral bg-opacity-30 ">
                 <h1 className="text-3xl text-center font-semibold uppercase text-neutral pt-8 mb-3">
                     My Orders
                 </h1>
