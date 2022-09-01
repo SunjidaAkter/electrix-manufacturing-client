@@ -5,16 +5,18 @@ import favourite from '../../Assets/favourite.png'
 import rating from '../../Assets/rating.png'
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import Bounce from 'react-reveal/Bounce';
+import Fade from 'react-reveal/Fade';
 
 
 const BusinessSummary = () => {
     return (
         <div className='mb-12'>
-            <p className='mt-12  text-accent font-extrabold text-center lg:text-5xl text-3xl'>BILLIONS BUSINESS BELIEVE US </p>
-            <p className='mb-12 text-secondary font-semibold text-center lg:text-3xl text-xl'>We understand customers expectation</p>
+            <Bounce left cascade><p className='mt-12  text-neutral font-extrabold text-center lg:text-5xl text-3xl'>BILLIONS BUSINESS BELIEVE US </p></Bounce>
+            <Bounce right cascade><p className='mb-12 text-neutral opacity-70 font-semibold text-center lg:text-3xl text-xl'>We understand customers expectation</p></Bounce>
 
             <div class="w-full flex justify-center">
-                <div class="lg:pl-12 lg:pr-8 px-24 stats stats-vertical lg:stats-horizontal shadow-xl">
+                <div class="lg:pl-12 lg:pr-8 px-12 stats stats-vertical lg:stats-horizontal shadow-xl">
 
                     <div class="stat">
                         <div class="stat-figure text-primary">
@@ -29,13 +31,14 @@ const BusinessSummary = () => {
                                         </div>
                                     )}
                                 </VisibilitySensor>
+                                {/* <CountUp end={500} duration={5} suffix=" +"></CountUp> */}
                             </div>
                             <div class="stat-title text-primary lg:font-bold font-normal text-xs lg:text-4xl font-bold">Countries</div>
 
                         </div>
                     </div>
 
-                    <div class="stat">
+                    {/* <div class="stat">
                         <div class="stat-figure text-primary">
                             <img src={briefing} alt="" />
                         </div>
@@ -48,12 +51,11 @@ const BusinessSummary = () => {
                                         </div>
                                     )}
                                 </VisibilitySensor>
-                                {/* <CountUp end={500} duration={5} suffix=" +"></CountUp> */}
                             </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Complete<br />Projects</div>
 
                         </div>
-                    </div>
+                    </div> */}
 
                     <div class="stat">
                         <div class="stat-figure text-primary">
@@ -101,10 +103,10 @@ const BusinessSummary = () => {
 
             </div>
             <div className='my-5 w-full flex justify-center items-center'>
-                <div class="p-12 w-11/12 flex justify-center items-center h-full card lg:card-side bg-base-100 shadow-2xl">
+                <div class="p-12 w-[70%] flex justify-center items-center h-full card lg:card-side bg-base-100 shadow-2xl">
                     <div>
-                        <p className='mt-3 font-bold text-neutral text-center lg:text-left lg:text-5xl text-4xl'>Have any question?</p>
-                        <p className='font-bold text-primary text-center lg:text-left lg:text-3xl text-2xl'>Don't hesitate to ask</p>
+                        <Fade bottom cascade><p className='mt-3 font-bold text-neutral text-center lg:text-left lg:text-5xl text-4xl'>Have any question?</p></Fade>
+                        <Fade bottom cascade><p className='font-bold text-primary text-center lg:text-left lg:text-3xl text-2xl'>Don't hesitate to ask</p></Fade>
                     </div>
                     {/* <div class="card-body">
 
