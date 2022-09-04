@@ -11,7 +11,7 @@ const News = ({ _news }) => {
                     <h2 className="text-primary text-4xl mt-8 font-bold pt-2">{headline}</h2>
                     <div className='flex justify-around items-center '>
                     </div>
-                    <p className=""> <span className='text-center text-xl text-slate-900 font-semibold'>{news}</span></p>
+                    <p className=""> <span className='text-justify text-xl text-slate-900 font-semibold'>{news}</span></p>
 
                 </div>
             </div>
