@@ -24,13 +24,13 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light  lg:stat-value text-neutral font-num text-base lg:text-6xl ">
-                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
-                                    {({ isVisible }) => (
-                                        <div >
-                                            {isVisible ? null : <CountUp end={72} duration={5} />}
-                                        </div>
+                                <CountUp end={19} redraw={true}>
+                                    {({ countUpRef, start }) => (
+                                        <VisibilitySensor onChange={start} delayedCall>
+                                            <span ref={countUpRef} />
+                                        </VisibilitySensor>
                                     )}
-                                </VisibilitySensor>
+                                </CountUp>
                                 {/* <CountUp end={500} duration={5} suffix=" +"></CountUp> */}
                             </div>
                             <div class="stat-title text-primary lg:font-bold font-normal text-xs lg:text-4xl font-bold">Countries</div>
@@ -63,13 +63,13 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl font-num">
-                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
-                                    {({ isVisible }) => (
-                                        <div >
-                                            {isVisible ? null : <CountUp end={245} duration={5} suffix=" +" />}
-                                        </div>
+                                <CountUp end={30} redraw={true}>
+                                    {({ countUpRef, start }) => (
+                                        <VisibilitySensor onChange={start} delayedCall>
+                                            <span ref={countUpRef} />
+                                        </VisibilitySensor>
                                     )}
-                                </VisibilitySensor>
+                                </CountUp>
                                 {/* <CountUp end={245} duration={5} suffix=" +"></CountUp> */}
                             </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Happy<br />Clients</div>
@@ -83,13 +83,13 @@ const BusinessSummary = () => {
                         </div>
                         <div>
                             <div class="w-full flex justify-center font-light lg:stat-value text-neutral text-base lg:text-6xl font-num">
-                                <VisibilitySensor partialVisibility offset={{ top: 670 }}>
-                                    {({ isVisible }) => (
-                                        <div >
-                                            {isVisible ? null : <CountUp end={454} duration={5} suffix=" +" />}
-                                        </div>
+                                <CountUp end={70} redraw={true}>
+                                    {({ countUpRef, start }) => (
+                                        <VisibilitySensor onChange={start} delayedCall>
+                                            <span ref={countUpRef} />
+                                        </VisibilitySensor>
                                     )}
-                                </VisibilitySensor>
+                                </CountUp>
                                 {/* <CountUp end={454} duration={5} suffix=" +"></CountUp> */}
                             </div>
                             <div class="stat-title lg:font-bold text-primary font-normal text-xs lg:text-4xl font-bold">Reviews</div>
@@ -103,7 +103,7 @@ const BusinessSummary = () => {
 
             </div>
             <div className='my-5 w-full flex justify-center items-center'>
-                <div class="p-12 w-[70%] flex justify-center items-center h-full card lg:card-side bg-base-100 shadow-2xl">
+                <div class="px-12 w-[70%] flex justify-center items-center h-full card lg:card-side bg-base-100 shadow-2xl">
                     <div>
                         <Fade bottom cascade><p className='mt-3 font-bold text-neutral text-center lg:text-left lg:text-5xl text-4xl'>Have any question?</p></Fade>
                         <Fade bottom cascade><p className='font-bold text-primary text-center lg:text-left lg:text-3xl text-2xl'>Don't hesitate to ask</p></Fade>

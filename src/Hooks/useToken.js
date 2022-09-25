@@ -10,7 +10,7 @@ const useToken = user => {
         const name = user?.user?.displayName;
         const currentUser = { email: email, name: name };
         if (email) {
-            fetch(`https://calm-bayou-08500.herokuapp.com/user/${email}`, {
+            fetch(`https://electrix-manufacturer-server.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
