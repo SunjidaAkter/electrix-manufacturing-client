@@ -29,7 +29,7 @@ const MakeAdmin = ({ index, user, refetch }) => {
             <th>{index + 1}</th>
             <td>{name ? name : "Not Available"}</td>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
+            <td>{role !== 'admin' ? <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button> : <button class="btn btn-xs opacity-50">Already Admin</button>}</td>
 
         </tr>
     );
