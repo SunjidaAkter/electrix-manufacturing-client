@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import News from './News';
+import Slide from 'react-reveal/Slide';
 
 const NewsBLog = () => {
     const [news, setNews] = useState([]);
@@ -11,7 +12,7 @@ const NewsBLog = () => {
     }, []);
     return (
         <div className='px-12'>
-            <h1 className='text-center text-neutral font-bold mb-1 mt-5 text-5xl'>News</h1>
+            <Slide bottom cascade><h1 className='text-center text-neutral font-bold mb-1 mt-5 text-5xl'>News</h1></Slide>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     news.map(_news => <News
