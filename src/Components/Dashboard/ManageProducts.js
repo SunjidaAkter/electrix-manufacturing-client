@@ -19,7 +19,7 @@ const ManageProducts = () => {
         refetch,
     } = useQuery("ordersss", () =>
         fetch(
-            `https://electrix-manufacturer-server.onrender.com/allProducts`,
+            `https://calm-bayou-08500.herokuapp.com/allProducts`,
             {
                 method: "GET",
                 headers: {

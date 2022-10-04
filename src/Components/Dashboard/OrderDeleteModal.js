@@ -6,7 +6,7 @@ const OrderDeleteModal = ({ myOrder, refetch }) => {
 
     const deleteHandler = (id) => {
         console.log(id);
-        const url = ` https://electrix-manufacturer-server.onrender.com/myOrder/${id}`;
+        const url = ` https://calm-bayou-08500.herokuapp.com/myOrder/${id}`;
         fetch(url, {
             method: "DELETE",
         })

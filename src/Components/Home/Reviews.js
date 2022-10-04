@@ -14,7 +14,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(" https://electrix-manufacturer-server.onrender.com/review")
+        fetch(" https://calm-bayou-08500.herokuapp.com/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);

@@ -5,7 +5,7 @@ const ToolDeleteModal = ({ allTool, refetch }) => {
 
 
     const deleteHandler = (id) => {
-        const url = ` https://electrix-manufacturer-server.onrender.com/allProducts/${id}`;
+        const url = ` https://calm-bayou-08500.herokuapp.com/allProducts/${id}`;
         fetch(url, {
             method: "DELETE",
         })

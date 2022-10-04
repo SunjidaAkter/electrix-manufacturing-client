@@ -26,7 +26,7 @@ const MyProfile = () => {
         refetch,
     } = useQuery("oneUser", () =>
         fetch(
-            `https://electrix-manufacturer-server.onrender.com/currentUser?email=${user?.email}`,
+            `https://calm-bayou-08500.herokuapp.com/currentUser?email=${user?.email}`,
             {
                 method: "GET",
                 headers: {

@@ -22,7 +22,7 @@ const MyOrders = () => {
         refetch,
     } = useQuery("orderss", () =>
         fetch(
-            `https://electrix-manufacturer-server.onrender.com/myOrder?email=${user?.email}`,
+            `https://calm-bayou-08500.herokuapp.com/myOrder?email=${user?.email}`,
             {
                 method: "GET",
                 headers: {

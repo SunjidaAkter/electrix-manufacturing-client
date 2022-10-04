@@ -6,7 +6,7 @@ const NewsBLog = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch(" https://electrix-manufacturer-server.onrender.com/news")
+        fetch(" https://calm-bayou-08500.herokuapp.com/news")
             .then((res) => res.json())
             .then((data) => setNews(data));
     }, []);

@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 import MakeAdmin from './MakeAdmin';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('userCollection', () => fetch('https://electrix-manufacturer-server.onrender.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('userCollection', () => fetch('https://calm-bayou-08500.herokuapp.com/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

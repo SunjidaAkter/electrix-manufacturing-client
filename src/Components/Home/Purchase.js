@@ -15,7 +15,7 @@ const Purchase = () => {
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
 
     useEffect(() => {
-        const url = `https://electrix-manufacturer-server.onrender.com/currentTool/${id}`;
+        const url = `https://calm-bayou-08500.herokuapp.com/currentTool/${id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setTool(data));
@@ -46,7 +46,7 @@ const Purchase = () => {
             totalPrice
         };
 
-        fetch("https://electrix-manufacturer-server.onrender.com/order", {
+        fetch("https://calm-bayou-08500.herokuapp.com/order", {
             method: "POST",
             body: JSON.stringify(myOrder),
             headers: {
