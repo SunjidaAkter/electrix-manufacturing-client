@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L485xFE0t8jCtbzq0bFtqucXXj8HAVJwFiQa
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://calm-bayou-08500.herokuapp.com/paymentOrder/${id}`;
+    const url = `https://electrix-manufacturer-server.onrender.com/paymentOrder/${id}`;
 
     const { data: payOrder, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',

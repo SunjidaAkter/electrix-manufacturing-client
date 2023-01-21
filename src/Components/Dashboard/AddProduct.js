@@ -36,7 +36,7 @@ const AddProduct = () => {
                         img: img
                     }
 
-                    fetch('https://calm-bayou-08500.herokuapp.com/adminTool', {
+                    fetch('https://electrix-manufacturer-server.onrender.com/adminTool', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

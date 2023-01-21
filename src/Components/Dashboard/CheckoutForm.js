@@ -13,7 +13,7 @@ const CheckoutForm = ({ payOrder }) => {
     const { _id, price, name, email } = payOrder;
 
     useEffect(() => {
-        fetch('https://calm-bayou-08500.herokuapp.com/create-payment-intent', {
+        fetch('https://electrix-manufacturer-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -78,7 +78,7 @@ const CheckoutForm = ({ payOrder }) => {
                 payOrder: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://calm-bayou-08500.herokuapp.com/paymentOrder/${_id}`, {
+            fetch(`https://electrix-manufacturer-server.onrender.com/paymentOrder/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

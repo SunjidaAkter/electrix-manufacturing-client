@@ -23,7 +23,7 @@ const AddReview = () => {
             review
         };
 
-        fetch("https://calm-bayou-08500.herokuapp.com/review", {
+        fetch("https://electrix-manufacturer-server.onrender.com/review", {
             method: "POST",
             body: JSON.stringify(myReview),
             headers: {

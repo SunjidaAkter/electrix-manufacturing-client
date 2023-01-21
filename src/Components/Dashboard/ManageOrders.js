@@ -15,7 +15,7 @@ const ManageOrders = () => {
         refetch,
     } = useQuery("orderses", () =>
         fetch(
-            `https://calm-bayou-08500.herokuapp.com/allOrder`,
+            `https://electrix-manufacturer-server.onrender.com/allOrder`,
             {
                 method: "GET",
                 headers: {
@@ -28,7 +28,7 @@ const ManageOrders = () => {
         return <Loading></Loading>
     }
     const pendingHandler = (id) => {
-        fetch(` https://calm-bayou-08500.herokuapp.com/allOrder/${id}`, {
+        fetch(` https://electrix-manufacturer-server.onrender.com/allOrder/${id}`, {
             method: "PUT",
             body: JSON.stringify({
                 shipped: true,
