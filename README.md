@@ -18,8 +18,15 @@
 * Admin Email : a@b.com
 * Admin Password : 121212
 
-## Tools
-*  React, Routing , Tailwind, Firebase, ExpressJS, MongoDB, JWT token, Stripe, Heroku .
-
-
+## Technologies
+- **Node.js**: v14.17.6
+- **Express.js**: v4.17.1
+- **React.js**: v17.0.2
+- **MongoDB**: v4.4
+- **Mongoose**: v6.0.8
+- **JWT**: v8.5.1
+- **Stripe**: v8.174.0
+- **firebase**: v9.8.1
+- **slick-carousel**: v1.8.1,
+- **swiper**: v8.1.5,
 
